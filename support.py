@@ -14,8 +14,8 @@ def import_csv_layout(path):
 
 def import_cut_graphics(path):  #obtendo a lista de sprites
     #images = []
-    for path in images_map0:
-        surface = pygame.image.load(path).convert_alpha()
+    #for path in images_map0:
+    surface = pygame.image.load(path).convert_alpha()
         #images.append(surface)
         
     tile_num_x = int(surface.get_size()[0] / tiles_size)   #descobrindo quantos ladrilho o eixo x possui

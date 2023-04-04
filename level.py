@@ -28,8 +28,8 @@ class Level:
                                 #tile_surface = terrain_tile_list[int(val)]
                                 #sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite
                                 sprite_group.add(sprite)
-                    return sprite_group
+        return sprite_group
         
     def run(self):
         self.terrain_sprites.draw(self.display_surface)
-        self.terrain_sprites.update(-1)
+        self.terrain_sprites.update(1)

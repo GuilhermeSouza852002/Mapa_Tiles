@@ -1,5 +1,6 @@
+vertical_tile_number = 11
 tiles_size = 32
-screen_height = 432
-screen_width = 800#len(level_map) * tile_size # a largura do mapa e aumentada de acordo com o mapa
+screen_height = vertical_tile_number * tiles_size
+screen_width = 1200
 
 fps = 60 #60 fps cravado
