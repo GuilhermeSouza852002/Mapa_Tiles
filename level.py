@@ -22,12 +22,14 @@ class Level:
             
                    
                     if type == 'terrain':
-                                terrain_tile_list = import_cut_graphics(images_map0) #criando lista de sprites
-                                print(len(terrain_tile_list))
+                                sprite = Tile(tiles_size,x,y)
+                                #terrain_tile_list = import_cut_graphics(images_map0) #criando lista de sprites
+                                #print(len(terrain_tile_list))
                                 #tile_surface = terrain_tile_list[int(val)]
                                 #sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite
-                                #sprite_group.add(sprite)
+                                sprite_group.add(sprite)
                     return sprite_group
         
     def run(self):
         self.terrain_sprites.draw(self.display_surface)
+        self.terrain_sprites.update(-1)
