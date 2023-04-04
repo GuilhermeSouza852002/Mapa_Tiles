@@ -32,4 +32,4 @@ class Level:
         
     def run(self):
         self.terrain_sprites.draw(self.display_surface)
-        self.terrain_sprites.update(1)
+        self.terrain_sprites.update(-1)
