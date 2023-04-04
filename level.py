@@ -2,7 +2,7 @@ import pygame
 from support import import_csv_layout,import_cut_graphics
 from settings import tiles_size
 from tiles import Tile, StaticTile
-
+from loadalltiles import images_map0
 class Level:
     def __init__(self,level_data,surface):
         self.display_surface = surface
@@ -22,15 +22,12 @@ class Level:
             
                    
                     if type == 'terrain':
-                        terrain_tile_list = []
-                        for i in range(1,81):
-                                terrain_tile_list = import_cut_graphics(f'graphics/terrain/IndustrialTile_{i}.png') #criando lista de sprites
-                                tile_surface = terrain_tile_list[int(val)]
-                                sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite
-                             
-                        sprite_group.add(sprite)
-                        
-        return sprite_group
+                                terrain_tile_list = import_cut_graphics(images_map0) #criando lista de sprites
+                                print(len(terrain_tile_list))
+                                #tile_surface = terrain_tile_list[int(val)]
+                                #sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite
+                                #sprite_group.add(sprite)
+                    return sprite_group
         
     def run(self):
         self.terrain_sprites.draw(self.display_surface)

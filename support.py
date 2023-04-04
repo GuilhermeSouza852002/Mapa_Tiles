@@ -1,17 +1,23 @@
 import pygame
 from settings import tiles_size
 from csv import reader
+from loadalltiles import images_map0
 
+#transformando o arquivo csv em lista
 def import_csv_layout(path):
     terrain_map = []
     with open(path) as map:
         level = reader(map,delimiter = ',')
         for row in level:
             terrain_map.append(list(row))
-        return terrain_map
-    
+        return terrain_map  
+
 def import_cut_graphics(path):  #obtendo a lista de sprites
-    surface = pygame.image.load(path).convert_alpha()
+    #images = []
+    for path in images_map0:
+        surface = pygame.image.load(path).convert_alpha()
+        #images.append(surface)
+        
     tile_num_x = int(surface.get_size()[0] / tiles_size)   #descobrindo quantos ladrilho o eixo x possui
     tile_num_y = int(surface.get_size()[1] / tiles_size)   #descobrindo quantos ladrilho o eixo y possui
     
