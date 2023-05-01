@@ -3,7 +3,7 @@ from support import import_csv_layout, import_cut_graphics, import_folder_images
 from settings import tiles_size
 from tiles import Tile, StaticTile
 
-directory = 'graphics/terrain/Industrial'
+directory = 'graphics/terrain/TilesMapas'
 
 class Level:
     def __init__(self,level_data,surface):
@@ -12,7 +12,7 @@ class Level:
         terrain_layout = import_csv_layout(level_data['terrain'])
         self.terrain_sprites = self.create_tile_group(terrain_layout, 'terrain')
         
-        terrain_tiles_images = import_folder_images_dict('graphics/terrain/Industrial') #função Python que usa a biblioteca Pygame para carregar imagens de uma pasta especificada e retorna um dicionário que mapeia os nomes das imagens (sem a extensão do arquivo) para objetos de imagem 
+        terrain_tiles_images = import_folder_images_dict('graphics/terrain/TilesMapas') #função Python que usa a biblioteca Pygame para carregar imagens de uma pasta especificada e retorna um dicionário que mapeia os nomes das imagens (sem a extensão do arquivo) para objetos de imagem 
         print(terrain_tiles_images)
         
     #percorre as linhas do mapa e as númera
