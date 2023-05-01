@@ -11,6 +11,8 @@ pygame.display.set_caption('Praise the Sun') #nome do display
 clock = pygame.time.Clock()
 level = Level(level_0, screen)
 
+
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

@@ -1,8 +1,10 @@
 import pygame
-from support import import_csv_layout,import_cut_graphics
+from support import import_csv_layout, import_cut_graphics, import_folder_images_dict
 from settings import tiles_size
 from tiles import Tile, StaticTile
-from loadalltiles import images_map0
+
+directory = 'graphics/terrain/Industrial'
+
 class Level:
     def __init__(self,level_data,surface):
         self.display_surface = surface
@@ -10,24 +12,30 @@ class Level:
         terrain_layout = import_csv_layout(level_data['terrain'])
         self.terrain_sprites = self.create_tile_group(terrain_layout, 'terrain')
         
+        terrain_tiles_images = import_folder_images_dict('graphics/terrain/Industrial') #função Python que usa a biblioteca Pygame para carregar imagens de uma pasta especificada e retorna um dicionário que mapeia os nomes das imagens (sem a extensão do arquivo) para objetos de imagem 
+        print(terrain_tiles_images)
+        
     #percorre as linhas do mapa e as númera
     def create_tile_group(self,layout,type):
         sprite_group = pygame.sprite.Group()
-         
         for row_index, row in enumerate(layout):    #lendo linha por linha do level_map horizontal
             for col_index, val in enumerate(row):   #lendo colunas na vertical
                 if val != '-1':
                     x = col_index * tiles_size  #obtendo a posição de x
                     y = row_index * tiles_size  #obtendo a posição de y
+    
             
                    
                     if type == 'terrain':
                                 sprite = Tile(tiles_size,x,y)
-                                #terrain_tile_list = import_cut_graphics(images_map0) #criando lista de sprites
+                                
+                                terrain_tile_list = import_cut_graphics(directory) #criando lista de sprites aq
                                 #print(len(terrain_tile_list))
-                                #tile_surface = terrain_tile_list[int(val)]
-                                #sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite
+                                
+                                tile_surface = terrain_tile_list[int(val)]  #aq
+                                sprite = StaticTile(tiles_size,x,y,tile_surface) #criando sprite aq
                                 sprite_group.add(sprite)
+                                
         return sprite_group
         
     def run(self):

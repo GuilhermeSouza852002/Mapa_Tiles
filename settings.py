@@ -4,3 +4,5 @@ screen_height = vertical_tile_number * tiles_size   #altura tela
 screen_width = 1200                                 #largura tela
 
 fps = 60                                            #60 fps cravado
+
+
