@@ -24,7 +24,7 @@ def import_csv_layout(path):
             #terrain_surface.append(image_surf)
     #return terrain_surface
 
-def import_folder_images_dict(path):
+def import_folder_images_dict(path):    #função para teste dos arquivos, só pra saber se o problema ta no diretorio ou no codigo
     terrain_dict = {}
     
     for folder_name, sub_folders, img_files in walk(path):
@@ -44,7 +44,7 @@ def import_cut_graphics(directory):  #importa todas as imagens de uma determinad
     #Para utilizá-la, é necessário fornecer o caminho do diretório onde as imagens estão localizadas, utilizando uma string como argumento da função. É importante garantir que todas as imagens da pasta estejam no formato PNG ou JPG.
     # Loop para carregar cada imagem na pasta
     for filename in os.listdir(directory):
-        if filename.endswith(".png") or filename.endswith(".jpg"):
+        if filename.split('.')[0]:
             # Caminho completo para o arquivo
             file_path = os.path.join(directory, filename)
 
